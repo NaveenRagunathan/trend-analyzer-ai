@@ -88,22 +88,6 @@ const HeroSection = ({
           <div className="w-full max-w-md relative">
             <EmailCaptureForm />
           </div>
-
-          {/* Trusted by */}
-          <div className="mt-16 w-full max-w-3xl">
-            <p className="text-xs uppercase tracking-wider text-[#A89EC9] mb-4">
-              Trusted by innovators from
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-70">
-              <div className="text-lavender/50 font-mono font-bold">GOOGLE</div>
-              <div className="text-lavender/50 font-mono font-bold">
-                MICROSOFT
-              </div>
-              <div className="text-lavender/50 font-mono font-bold">META</div>
-              <div className="text-lavender/50 font-mono font-bold">AMAZON</div>
-              <div className="text-lavender/50 font-mono font-bold">TESLA</div>
-            </div>
-          </div>
         </div>
       </div>
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "./ui/button";
-import { Sparkles, Menu, X, ChevronDown } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 interface NavbarProps {
   transparent?: boolean;
@@ -8,7 +7,6 @@ interface NavbarProps {
 
 const Navbar = ({ transparent = true }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,13 +20,6 @@ const Navbar = ({ transparent = true }: NavbarProps) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navItems = [
-    { name: "Features", href: "#features" },
-    { name: "How It Works", href: "#how-it-works" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Blog", href: "#blog" },
-  ];
 
   return (
     <nav
@@ -54,69 +45,7 @@ const Navbar = ({ transparent = true }: NavbarProps) => {
               TrendSeer<span className="text-lavender">AI</span>
             </span>
           </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <div className="flex space-x-6">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-[#A89EC9] hover:text-lavender transition-colors font-medium text-sm relative group"
-                >
-                  {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-mint group-hover:w-full transition-all duration-300"></span>
-                </a>
-              ))}
-            </div>
-            <Button className="bg-transparent border-2 border-mint/30 hover:border-mint/70 text-mint hover:bg-mint/10 rounded-lg px-5 py-2 text-sm font-medium transition-all duration-300">
-              Sign In
-            </Button>
-            <Button className="bg-gradient-to-r from-mint to-[#2DD4BF] hover:from-[#2DD4BF] hover:to-mint text-[#120D3A] rounded-lg px-5 py-2 text-sm font-bold transition-all duration-300 hover:shadow-lg hover:shadow-mint/20">
-              Get Started
-            </Button>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-lavender hover:bg-[#3DD598]/10 hover:text-mint"
-            >
-              {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </Button>
-          </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden pt-4 pb-3 space-y-3 border-t border-[#3DD598]/20 mt-3">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block px-3 py-2 text-[#A89EC9] hover:text-lavender hover:bg-[#3DD598]/10 rounded-md transition-colors font-medium text-sm"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
-            <div className="pt-2 space-y-2">
-              <Button className="w-full bg-transparent border border-mint/30 hover:border-mint/70 text-mint hover:bg-mint/10 rounded-lg py-2 text-sm font-medium transition-all duration-300">
-                Sign In
-              </Button>
-              <Button className="w-full bg-gradient-to-r from-mint to-[#2DD4BF] hover:from-[#2DD4BF] hover:to-mint text-[#120D3A] rounded-lg py-2 text-sm font-bold transition-all duration-300">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        )}
       </div>
     </nav>
   );

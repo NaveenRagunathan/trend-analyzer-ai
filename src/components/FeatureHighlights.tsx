@@ -3,7 +3,6 @@ import {
   Zap,
   Brain,
   Filter,
-  ArrowRight,
   LineChart,
   BarChart3,
   PieChart,
@@ -38,12 +37,6 @@ const Feature = ({
         {title}
       </h3>
       <p className="text-[#A89EC9] text-sm mb-5">{description}</p>
-      <a
-        href="#"
-        className={`inline-flex items-center text-${color} text-sm font-medium mt-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-      >
-        Learn more <ArrowRight className="ml-1 h-4 w-4" />
-      </a>
     </div>
   );
 };
